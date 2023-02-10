@@ -1,0 +1,17 @@
+name: Github Actions Local Wisefy
+run-name: ${{ github.actor }} is testing oout Github Actions
+
+on: [push]
+jobs:
+  Exlpore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is only a test ${{ runner.os }}"
+      - run: echo "name of branch is ${{ github.ref }}"
+      - name: Check out repo code
+        uses: actions/checkout@v3
+      - run: echo "Test ${{ github.repository }}"
+      - name: echo "List files on repo"
+        run: |
+          ls ${{ github.worksapce }}
+      - run: echo "This job's status in ${{ job.status }}"
