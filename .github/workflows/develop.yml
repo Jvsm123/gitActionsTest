@@ -3,7 +3,7 @@ name: Test Docker
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 # env:
 #   URL_MOCKED: http://localhost:3000
