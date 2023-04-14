@@ -42,19 +42,9 @@ jobs:
         run: |
           cd ./teste
           yarn install --frozen-lockfile
-    strategy:
-      matrix:
-        achitecture:
-          - x64
-        experimental: [true]
-        os: [ubuntu-latest, macos-11, windows-2019]
 
-  deploy:
-    name: Deploy
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build and push
+      - if: ${{ matrix.os == 'ubuntu-latest'}}
+        name: Build and push
         uses: docker/build-push-action@v4
         with:
           # cache-from: type=gha
@@ -64,6 +54,12 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
           target: builder
+    strategy:
+      matrix:
+        achitecture:
+          - x64
+        experimental: [true]
+        os: [ubuntu-latest, macos-11, windows-2019]
 
 name: Pipeline Test
 on:
