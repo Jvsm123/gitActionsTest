@@ -4,7 +4,7 @@ WORKDIR /app
 
 # COPY ./teste/package.json ./
 
-# RUN yarn install
+RUN yarn install
 
 COPY ./teste .
 
