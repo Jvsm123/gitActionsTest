@@ -22,9 +22,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          cache: yarn
+          cache: 'yarn'
           node-version: '16'
-          path: ./teste
 
       - name: Set up yarn
         run: |
