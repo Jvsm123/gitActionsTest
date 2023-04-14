@@ -25,7 +25,7 @@ jobs:
         run: |
           ls
           ls teste/
-          echo "${{ hashFiles('teste/*.lock') }}"
+          echo "${{ hashFiles('teste/') }}"
 
       - env:
           cache-name: cache-node-modules
