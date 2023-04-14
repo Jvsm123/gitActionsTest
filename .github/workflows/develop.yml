@@ -19,6 +19,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
 
+      - name: Set up App
+        run: cd ./teste
+
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
