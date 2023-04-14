@@ -32,8 +32,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
 
-      # - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
-      - name: install dependencies
+      - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
+        name: install dependencies
         run: |
           cd teste/
           npm install
@@ -41,11 +41,12 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          build-contexts: .
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          context: .
           push: true
           tags: ${{ env.REGISTRY_USER }}/pipeline:latest
+          target: builder
 
 name: Docker
 on:
