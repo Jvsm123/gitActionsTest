@@ -24,6 +24,7 @@ jobs:
         with:
           cache: yarn
           node-version: '16'
+          path: ./teste
 
       - name: Set up yarn
         run: |
