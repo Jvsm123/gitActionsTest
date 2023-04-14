@@ -19,9 +19,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
 
-      - name: Set up App
-        run: cd ./teste
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -29,8 +26,10 @@ jobs:
           cache-dependency-path: teste/yarn.lock
           node-version: '16'
 
-      - name: install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Set up App
+        run: |
+          cd ./teste
+          yarn install --frozen-lockfile
 
       - name: Build and push
         uses: docker/build-push-action@v4
