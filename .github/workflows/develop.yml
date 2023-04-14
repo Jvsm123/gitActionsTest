@@ -47,9 +47,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           cache-from: type=gha
-          cache-to: type=gha, mode=max
+          cache-to: type=gha,mode=max
           context: .
-          file: ./Dockerfile
+          # file: ./Dockerfile
           push: true
           tags: ${{ env.REGISTRY_USER }}/pipeline:latest
 
