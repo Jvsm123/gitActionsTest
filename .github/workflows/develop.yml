@@ -10,6 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - if: ${{ matrix.os == 'windows-2019' }}
+        run: |
+          docker info
+
+      - if: ${{ matrix.os == 'macos-11' }}
+        run: colima status
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -30,13 +37,6 @@ jobs:
         run: |
           cd ./teste
           yarn install --frozen-lockfile
-
-      - if: ${{ matrix.os == 'windows-2019' }}
-        run: |
-          docker info
-
-      - if: ${{ matrix.os == 'macos-11' }}
-        run: colima status
 
       - name: Build and push
         uses: docker/build-push-action@v4
