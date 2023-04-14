@@ -31,11 +31,11 @@ jobs:
           cd ./teste
           yarn install --frozen-lockfile
 
-      - if: ${{ matrix.os == windows-2019 }}
+      - if: ${{ matrix.os == 'windows-2019' }}
         run: |
           docker info
 
-      - if: ${{ matrix.os == macos-11 }}
+      - if: ${{ matrix.os == 'macos-11' }}
         run: colima status
 
       - name: Build and push
