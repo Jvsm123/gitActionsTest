@@ -33,17 +33,18 @@ jobs:
       - name: Check node cache
         uses: actions/cache@v2
         with:
-          key: ${{ runner.os }}-yarn-${{ hashFiles('teste/*.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           path: |
+            **/node_modules
             ${{ env.name }}
           restore-keys: |
-            ${{ runner.os }}-yarn-${{ hashFiles('teste/*.lock') }}
+            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       # - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
       - name: install dependencies
         run: |
           cd ./teste/
-          yarn install
+          yarn install --frozen-lockfile
 
       - name: Build and push
         uses: docker/build-push-action@v4
