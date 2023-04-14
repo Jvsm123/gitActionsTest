@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('/teste/package-lock.json') }}
           path: ~/.npm/
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/teste/package-lock.json') }}
+            ${{ runner.os }}-${{ hashFiles('/teste/package-lock.json') }}
 
       - if: steps.cachestep.outputs.cache-hit != 'true'
         name: install dependencies
