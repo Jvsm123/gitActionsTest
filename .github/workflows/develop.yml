@@ -1,10 +1,10 @@
 jobs:
   build:
     continue-on-error: ${{ matrix.experimental }}
-    # permissions:
-    #   contents: read
-    #   id-token: write
-    #   packages: write
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -43,6 +43,8 @@ jobs:
 
     strategy:
       matrix:
+        achitecture:
+          - x64
         experimental: [true]
         os: [ubuntu-latest, macos-latest, windows-2019]
 
