@@ -32,8 +32,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
 
-      - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
-        name: install dependencies
+      # - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
+      - name: install dependencies
         run: |
           cd teste/
           npm install
