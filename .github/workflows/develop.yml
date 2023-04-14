@@ -26,7 +26,6 @@ jobs:
       - id: yarn-dir-cache
         name: Get Yarn cache directory
         run: |
-          # cd ./teste 
           echo "name=$(yarn config get cacheFolder)" >> $GITHUB_ENV
 
       - name: Check node cache
