@@ -38,11 +38,6 @@ jobs:
           cd teste/
           npm install
 
-      - name: local Cache
-        run: |
-          echo "${{ $ACTIONS_CACHE_URL }}"
-          echo "${{ $ACTIONS_RUNTIME_TOKEN }}"
-
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
