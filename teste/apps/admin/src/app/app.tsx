@@ -5,6 +5,7 @@ export function App() {
     <>
       <Banner text="Welcome to our admin app." />
 
+      <p>Only testing ;)</p>
       <div />
     </>
   );
