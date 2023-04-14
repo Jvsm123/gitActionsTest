@@ -1,7 +1,7 @@
 jobs:
   build:
     continue-on-error: ${{ matrix.experimental }}
-    name: ${{ matrix.os-Pipeline }}
+    name: ${{ matrix.os}}-Pipeline
     permissions:
       contents: read
       id-token: write
