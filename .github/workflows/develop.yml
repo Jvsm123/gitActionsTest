@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v3
         with:
           key: ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
-          path: /temp/.npm
+          path: ~/.npm
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
 
