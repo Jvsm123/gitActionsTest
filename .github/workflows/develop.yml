@@ -1,6 +1,7 @@
 jobs:
   build:
     continue-on-error: ${{ matrix.experimental }}
+    name: ${{ matrix.os-Pipeline }}
     permissions:
       contents: read
       id-token: write
@@ -17,7 +18,8 @@ jobs:
           driver: docker
 
       - if: ${{ matrix.os == 'macos-11' }}
-        run: ln -s ~/.docker/run/docker.sock /var/run/docker.sock
+        name: Setup Docker Build on Mac
+        uses: douglascamata/setup-docker-macos-action@v1-alpha
 
       - if: ${{ matrix.os == 'ubuntu-latest' }}
         name: Set up Docker Buildx on Linux
