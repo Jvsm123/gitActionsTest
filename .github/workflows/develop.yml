@@ -21,12 +21,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Teste
-        run: |
-          ls
-          ls teste/
-          echo "${{ hashFiles('teste/') }}"
-
       - env:
           cache-name: cache-node-modules
         id: cachestep
@@ -34,11 +28,11 @@ jobs:
         uses: actions/cache@v3
         with:
           key: ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
-          path: ~/.npm
+          path: /temp/.npm
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('teste/*.lock') }}
 
-      - if: steps.cachestep.outputs.cache-hit != 'true'
+      - if: ${{ steps.cachestep.outputs.cache-hit != 'true' }}
         name: install dependencies
         run: |
           cd teste/
@@ -46,8 +40,8 @@ jobs:
 
       - name: local Cache
         run: |
-          echo "${{ ACTIONS_CACHE_URL }}"
-          echo "${{ ACTIONS_RUNTIME_TOKEN }}"
+          echo "${{ $ACTIONS_CACHE_URL }}"
+          echo "${{ $ACTIONS_RUNTIME_TOKEN }}"
 
       - name: Build and push
         uses: docker/build-push-action@v4
