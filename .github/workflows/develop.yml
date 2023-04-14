@@ -43,12 +43,24 @@ jobs:
           cd ./teste
           yarn install --frozen-lockfile
 
+      - if: ${{ matrix.os != 'ubuntu-latest'}}
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
+          target: builder
+
       - if: ${{ matrix.os == 'ubuntu-latest'}}
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          # cache-from: type=gha
-          # cache-to: type=gha,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           context: .
           file: ./Dockerfile
           push: false
