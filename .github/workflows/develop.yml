@@ -4,7 +4,7 @@ jobs:
       contents: read
       id-token: write
       packages: write
-    runs-on: ${{ matrix.plataform }}
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
