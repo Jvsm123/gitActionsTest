@@ -39,12 +39,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: 'yarn'
-          cache-dependency-path: teste/yarn.lock
+          cache-dependency-path: nextjs/yarn.lock
           node-version: '16'
 
       - name: Set up App
         run: |
-          cd ./teste
+          cd ./nextjs
           yarn install --frozen-lockfile
 
       - name: Build Offical Image
