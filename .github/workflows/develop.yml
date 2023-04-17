@@ -1,6 +1,6 @@
 jobs:
   build:
-    continue-on-error: ${{ matrix.experimental }}
+    # continue-on-error: ${{ matrix.experimental }}
     name: ubuntu-latest_Pipeline
     permissions:
       contents: read
