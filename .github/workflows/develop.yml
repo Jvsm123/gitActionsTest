@@ -55,7 +55,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}-ubuntu-latest/pipeline:latest
+          tags: ubuntu-latest/pipeline:latest
           target: builder
     strategy:
       matrix:
