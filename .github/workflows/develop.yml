@@ -57,11 +57,11 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
           target: builder
-    strategy:
-      matrix:
-        achitecture:
-          - x64
-        experimental: [true]
+    # strategy:
+    #   matrix:
+    #     achitecture:
+    #       - x64
+    #     experimental: [true]
         # os: [ubuntu-latest, macos-11, windows-2019]
 
 name: Pipeline Test
