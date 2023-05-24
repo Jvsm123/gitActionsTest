@@ -35,5 +35,5 @@ jobs:
             dist
             Dockerfile
 
-name: Pipeline Test
+name: Develop
 on: [pull_request, push]
