@@ -1,0 +1,31 @@
+jobs:
+
+  deploy:
+    environment:
+      name: gitActionsTest.master
+    name: ubuntu-latest_Pipeline
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx on Linux
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Offical Image
+        uses: docker/build-push-action@v4
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
+          target: builder
+
+name: Pipeline Test
+on: pull_request
