@@ -32,8 +32,8 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
           target: builder
 
-name: Pipeline Test
+name: Master
 on:
   workflow_run:
     workflows:
-      - develop
+      - Develop
