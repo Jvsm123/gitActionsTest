@@ -1,8 +1,7 @@
 jobs:
-
   build:
     environment:
-      name: gitActionsTest
+      name: gitActionsTest.develop
     name: ubuntu-latest_Pipeline
     permissions:
       contents: read
@@ -34,16 +33,17 @@ jobs:
           cd ./nextjs
           yarn install --frozen-lockfile
 
-      - name: Build Offical Image
-        uses: docker/build-push-action@v4
+      - name: Create Build States
+        run: mkdir -p /git/artifact/
+
+      - name: Move App bundled
+        run: mv ./dist /git/artifact/
+
+      - name: Upload build files
+        uses: actions/upload-artifact@v2
         with:
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          context: .
-          file: ./Dockerfile
-          push: false
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
-          target: builder
+          name: develop-build
+          path: /git/artifact
 
 name: Pipeline Test
-on: pull_request
+on: [pull_request, push]
