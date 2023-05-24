@@ -2,7 +2,7 @@ jobs:
   build:
     # continue-on-error: ${{ matrix.experimental }}
     environment:
-      name: gitActionsTest
+      name: gitActionsTest.prod
     name:
       ubuntu-latest_Pipeline
       # runs-on: ${{ matrix.os }}
