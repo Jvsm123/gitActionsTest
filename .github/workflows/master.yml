@@ -1,5 +1,4 @@
 jobs:
-
   deploy:
     environment:
       name: gitActionsTest
@@ -34,6 +33,9 @@ jobs:
 
 name: Master
 on:
+  push:
+    branches:
+      - 'master'
   workflow_run:
     workflows:
       - Develop
