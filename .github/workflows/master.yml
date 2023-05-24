@@ -2,7 +2,7 @@ jobs:
 
   deploy:
     environment:
-      name: gitActionsTest.master
+      name: gitActionsTest
     name: ubuntu-latest_Pipeline
     permissions:
       contents: read
@@ -10,6 +10,11 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
+      - name: Download archives
+        uses: actions/download-artifact@v2
+        with:
+          name: develop-build
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -28,4 +33,7 @@ jobs:
           target: builder
 
 name: Pipeline Test
-on: pull_request
+on:
+  workflow_run:
+    workflows:
+      - develop
