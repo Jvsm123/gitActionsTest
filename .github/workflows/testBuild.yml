@@ -24,13 +24,13 @@ jobs:
 
       - name: Set up App
         run: |
-          cd ./nextjs
+          cd nextjs
           yarn install --frozen-lockfile
 
       - name: Build
         run: |
-          cd ./nextjs
-          yarn build
+          cd nextjs
+          yarn run nx build teste
 
       - name: Upload build files
         uses: actions/upload-artifact@v2
@@ -40,7 +40,7 @@ jobs:
             dist
             Dockerfile
 
-name: Develop
+name: Test
 on: 
   pull_request:
     branches:
