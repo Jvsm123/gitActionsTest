@@ -27,6 +27,9 @@ jobs:
           cd ./nextjs
           yarn install --frozen-lockfile
 
+      - name: Build
+        run: yarn build
+
       - name: Upload build files
         uses: actions/upload-artifact@v2
         with:
