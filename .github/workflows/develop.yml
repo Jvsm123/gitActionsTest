@@ -27,17 +27,13 @@ jobs:
           cd ./nextjs
           yarn install --frozen-lockfile
 
-      - name: Create Build States
-        run: mkdir -p /git/artifact/
-
-      - name: Move App bundled
-        run: mv ./dist /git/artifact/
-
       - name: Upload build files
         uses: actions/upload-artifact@v2
         with:
           name: develop-build
-          path: /git/artifact
+          path: |
+            dist
+            Dockerfile
 
 name: Pipeline Test
 on: [pull_request, push]
