@@ -36,4 +36,12 @@ jobs:
             Dockerfile
 
 name: Develop
-on: [pull_request, push]
+on: 
+  pull_request:
+    branches:
+      - "*"
+      - "!master"
+  push:
+    branches:
+      - "*"
+      - "!master"
