@@ -1,7 +1,7 @@
 jobs:
   build:
     environment:
-      name: gitActionsTest.develop
+      name: gitActionsTest.test
     name: ubuntu-latest_Pipeline
     permissions:
       contents: read
