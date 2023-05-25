@@ -37,5 +37,7 @@ on:
     branches:
       - 'master'
   workflow_run:
+    types:
+      - completed
     workflows:
       - Develop
