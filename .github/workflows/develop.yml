@@ -12,6 +12,7 @@ jobs:
       - name: Download previous Build
         uses: actions/cache@v3
         with:
+          key: test-${{ github.sha }}
           restore-keys: |
             test-${{ github.sha }}
 
@@ -31,8 +32,6 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
           target: builder
-
-            ##
 
 name: Develop
 on:
