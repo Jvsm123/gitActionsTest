@@ -32,17 +32,10 @@ jobs:
           cd nextjs
           yarn run nx build teste
 
-
-      - name: test
-        run: ls -la
-
-      - name: test
-        run: ls nextjs
-
       - name: Upload build files
         uses: actions/upload-artifact@v3
         with:
-          name: test-build
+          name: test-${{ github.sha }}
           path: nextjs/dist
 
 name: Test

@@ -9,11 +9,10 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
-      - name: Download archives
-        uses: dawidd6/action-download-artifact@v2
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
         with:
-          workflow: Test
-          workflow_conclusion: success
+          name: test-${{ github.sha }}
 
       - name: Checkout
         uses: actions/checkout@v3
