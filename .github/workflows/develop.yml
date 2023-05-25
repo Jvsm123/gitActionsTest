@@ -34,5 +34,7 @@ jobs:
 name: Develop
 on:
   workflow_run:
+    types:
+      - completed
     workflows:
       - Test
