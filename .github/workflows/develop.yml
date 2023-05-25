@@ -12,6 +12,7 @@ jobs:
       - name: Download previous Build
         uses: actions/cache@v3
         with:
+          key: test-${{ github.sha }}
           restore-keys: |
             test-${{ github.sha }}
 
