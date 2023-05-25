@@ -12,7 +12,7 @@ jobs:
       - name: Download previous Build
         uses: actions/download-artifact@v2
         with:
-          name: teste-dist{{ github.sha }}
+          name: teste-dist-{{ github.sha }}
           path: nextjs/dist
 
       - name: Checkout
