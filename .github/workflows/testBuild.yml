@@ -32,12 +32,12 @@ jobs:
           cd nextjs
           yarn run nx build teste
 
-      - name: Upload build files
-        uses: actions/cache@v3
+      - name: Upload dist files
+        uses: actions/upload-artifact@v3
         with:
-          key: test-${{ github.sha }}
+          name: test-dist-${{ github.sha }}
           path: nextjs/dist
-
+          retention-days: 1
 
 name: Test
 on: 
