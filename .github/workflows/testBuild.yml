@@ -33,11 +33,11 @@ jobs:
           yarn run nx build teste
 
       - name: Upload build files
+
         uses: actions/upload-artifact@v3
         with:
           name: test-${{ github.sha }}
           path: nextjs/dist
-
 
 name: Test
 on: 
