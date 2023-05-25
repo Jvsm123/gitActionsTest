@@ -9,10 +9,11 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
+      - name: Download previous Build
+        uses: actions/cache@v3
         with:
-          name: test-${{ github.sha }}
+          restore-keys: |
+            test-${{ github.sha }}
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,6 +31,8 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
           target: builder
+
+            ##
 
 name: Develop
 on:
