@@ -27,10 +27,21 @@ jobs:
           cd nextjs
           yarn install --frozen-lockfile
 
-      - name: Build
+      - name: Test
         run: |
           cd nextjs
           yarn run nx build teste
+
+      - name: Build Offical Image
+        uses: docker/build-push-action@v4
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
+          target: builder
 
       - name: Upload dist files
         uses: actions/upload-artifact@v3
