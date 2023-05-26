@@ -21,17 +21,6 @@ jobs:
       - name: Set up Docker Buildx on Linux
         uses: docker/setup-buildx-action@v2
 
-      - name: Build Offical Image
-        uses: docker/build-push-action@v4
-        with:
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          context: .
-          file: ./Dockerfile
-          push: false
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pipeline:latest
-          target: builder
-
 name: Master
 on:
   push:
