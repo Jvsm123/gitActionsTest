@@ -1,3 +1,6 @@
+env:
+  TEST: ${{ github.sha }}
+
 jobs:
   deploy:
     environment:
@@ -14,6 +17,9 @@ jobs:
         with:
           workflow: testBuild.yml
           workflow_conclusion: success
+
+      - name: Teste
+        run: echo env.TEST
 
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
