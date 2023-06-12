@@ -1,3 +1,6 @@
+env:
+  TEST: ${{ github.sha }}
+
 jobs:
   build:
     environment:
