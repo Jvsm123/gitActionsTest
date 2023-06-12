@@ -12,6 +12,9 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
+      - name: Test
+        run: echo ${{ env.TEST }}
+
       - name: Checkout
         uses: actions/checkout@v3
 
