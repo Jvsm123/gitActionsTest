@@ -1,8 +1,10 @@
 name: Staging Test Workflow
 
 on:
-  pull_request:
-    branches:
+  workflow_run:
+    types:
+      - requested
+    workflows:
       - master
 
 jobs:
