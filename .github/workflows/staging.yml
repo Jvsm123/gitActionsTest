@@ -1,7 +1,7 @@
 name: Staging Test Workflow
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
