@@ -19,7 +19,7 @@ jobs:
         with:
           secret: ${{ github.TOKEN }}
           approvers: jvsm123
-          minimum-approvals: 2
+          minimum-approvals: 1
           issue-title: 'Deploying PROD release'
           issue-body: 'Please approve or deny the deployment'
           exclude-workflow-initiator-as-approver: true
