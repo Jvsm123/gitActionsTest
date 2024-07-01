@@ -4,9 +4,13 @@ on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
+    name: Deploy to Staging
     runs-on: ubuntu-latest
     permissions:
       contents: read

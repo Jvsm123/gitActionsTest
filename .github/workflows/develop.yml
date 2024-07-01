@@ -7,9 +7,7 @@ on:
 
 jobs:
   deploy:
-    environment:
-      name: gitActionsTest.develop
-    name: ubuntu-latest_Pipeline
+    name: Deploy to Develop
     permissions:
       contents: read
       id-token: write
