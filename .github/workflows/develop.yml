@@ -1,3 +1,9 @@
+name: Develop
+on:
+  push:
+    branches:
+      - develop
+
 jobs:
   deploy:
     environment:
@@ -9,12 +15,6 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: testBuild.yml
-          workflow_conclusion: success
-
       - name: Teste
         run: echo env.TEST
 
@@ -26,9 +26,3 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-
-name: Develop
-on:
-  push:
-    branches:
-      - develop
