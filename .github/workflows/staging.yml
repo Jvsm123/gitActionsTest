@@ -1,4 +1,4 @@
-name: Staging Test Workflow
+name: Staging CI/CD Workflow
 
 on:
   pull_request:

@@ -1,4 +1,5 @@
-name: Develop
+name: Develop CI/CD Pipeline
+
 on:
   push:
     branches:

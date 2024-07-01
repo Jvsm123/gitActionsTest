@@ -1,4 +1,4 @@
-name: Test Main CI/CD Pause Pipeline
+name: Main CI/CD Pipeline
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
-          approvers: jvsm123
+          approvers: Jvsm123
           minimum-approvals: 1
           issue-title: 'Deploying PROD release'
           issue-body: 'Please approve or deny the deployment'
